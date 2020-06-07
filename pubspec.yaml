@@ -1,0 +1,20 @@
+name: openjmu_cms
+description: An empty Aqueduct application.
+version: 0.1.0
+author: AlexV525 <github@alexv525.com>
+
+environment:
+  sdk: ">=2.8.1 <3.0.0"
+
+dependencies:
+  aqueduct: 3.3.0+1
+  http: ^0.12.1
+
+dev_dependencies:
+  effective_dart: ^1.2.1
+  pedantic: ^1.9.0
+  aqueduct_test: ^1.0.0
+
+dependency_overrides:
+  analyzer: ">=0.36.0 <0.40.0"
+  postgres: ^2.1.1

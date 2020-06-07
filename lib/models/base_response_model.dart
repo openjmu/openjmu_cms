@@ -2,12 +2,13 @@
 /// [Author] Alex (https://github.com/AlexVincent525)
 /// [Date] 2020/06/06 15:56
 ///
+import 'package:openjmu_cms/openjmu_cms.dart';
 
 /// Base Response Model.
 class BaseResponseModel<T> {
   BaseResponseModel({
-    this.code,
-    this.msg,
+    @required this.code,
+    @required this.msg,
     this.data,
   });
 

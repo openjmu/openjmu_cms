@@ -40,15 +40,20 @@ class OpenjmuCmsChannel extends ApplicationChannel {
   Controller get entryPoint {
     final Router router = Router();
 
-    router.route('/files/*').link(() => FileController('public/'));
-
-    router.route('auth/token').link(() => AuthController(authServer));
+    router.route('/auth/token').link(() => AuthController(authServer));
 
     router.route('/login').link(() => LoginController(context));
 
     router
         .route('/register')
         .link(() => RegisterController(authServer, context));
+
+    router.route('/files/*').link(() => FileController('public/'));
+
+    router
+        .route('/first-date')
+        .link(() => Authorizer.bearer(authServer))
+        .link(() => FirstDateController(context));
 
     return router;
   }

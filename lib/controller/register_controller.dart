@@ -1,3 +1,7 @@
+///
+/// [Author] Alex (https://github.com/AlexVincent525)
+/// [Date] 2020/06/07 22:08
+///
 import 'package:openjmu_cms/openjmu_cms.dart';
 
 class RegisterController extends ResourceController {

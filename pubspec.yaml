@@ -9,6 +9,7 @@ environment:
 dependencies:
   aqueduct: 3.3.0+1
   http: ^0.12.1
+  meta: ^1.1.8
 
 dev_dependencies:
   effective_dart: ^1.2.1

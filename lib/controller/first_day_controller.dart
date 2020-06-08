@@ -4,14 +4,14 @@
 ///
 import 'package:openjmu_cms/openjmu_cms.dart';
 
-class FirstDateController extends ResourceController {
-  FirstDateController(this.context);
+class FirstDayController extends ResourceController {
+  FirstDayController(this.context);
 
   final ManagedContext context;
 
   @Operation.get()
   Future<Response> getFirstDate(@Bind.query('type') String type) async {
-    final Query<FirstDateModel> query = Query<FirstDateModel>(context);
+    final Query<FirstDayModel> query = Query<FirstDayModel>(context);
     dynamic result;
     if (type == 'all') {
       result = await query.fetch();
@@ -28,13 +28,13 @@ class FirstDateController extends ResourceController {
   }
 
   @Operation.post()
-  Future<Response> updateFirstData(@Bind.body() FirstDateModel model) async {
+  Future<Response> updateFirstData(@Bind.body() FirstDayModel model) async {
     try {
       final int id = request.authorization.ownerID;
       model.modifiedByUserId = id;
-      final Query<FirstDateModel> query = Query<FirstDateModel>(context)
+      final Query<FirstDayModel> query = Query<FirstDayModel>(context)
         ..values = model;
-      final FirstDateModel insertedModel = await query.insert();
+      final FirstDayModel insertedModel = await query.insert();
       return Response.ok(
         BaseResponseModel<dynamic>(
           code: responseSuccessCode,

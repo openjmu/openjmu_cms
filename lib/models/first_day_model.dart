@@ -4,11 +4,11 @@
 ///
 import 'package:openjmu_cms/openjmu_cms.dart';
 
-class FirstDateModel extends CustomManagedObject<_FirstDateModel> implements _FirstDateModel {
-  FirstDateModel();
+class FirstDayModel extends CustomManagedObject<_FirstDayModel> implements _FirstDayModel {
+  FirstDayModel();
 
-  factory FirstDateModel.fromJson(Map<String, dynamic> json) {
-    return FirstDateModel()
+  factory FirstDayModel.fromJson(Map<String, dynamic> json) {
+    return FirstDayModel()
     ..value = json['value']?.toString() ?? ''
     ..modifiedByUserId = json['user'] as int;
   }
@@ -23,7 +23,7 @@ class FirstDateModel extends CustomManagedObject<_FirstDateModel> implements _Fi
   }
 }
 
-class _FirstDateModel {
+class _FirstDayModel {
   @primaryKey
   int id;
 

@@ -12,13 +12,12 @@ class RegisterController extends ResourceController {
 
   @Operation.post()
   Future<Response> createUser(@Bind.body() User user) async {
-    //检查条件
     if (user?.username?.isNotEmpty != true ||
         user?.password?.isNotEmpty != true) {
       return Response.ok(
         BaseResponseModel<dynamic>(
-          code: 1,
-          msg: '注册失败：username and password required',
+          code: responseErrorCode,
+          msg: 'username or password required',
         ),
       );
     }
@@ -31,8 +30,8 @@ class RegisterController extends ResourceController {
     if (await query.fetchOne() != null) {
       return Response.ok(
         BaseResponseModel<dynamic>(
-          code: 1,
-          msg: '注册失败：user has already exist',
+          code: responseErrorCode,
+          msg: 'user has already exist',
         ),
       );
     }
@@ -46,8 +45,8 @@ class RegisterController extends ResourceController {
 
     return Response.ok(
       BaseResponseModel<User>(
-        code: 1,
-        msg: '注册成功',
+        code: responseSuccessCode,
+        msg: '',
         data: result,
       ),
     );

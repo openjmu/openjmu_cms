@@ -13,6 +13,11 @@ class LoginController extends ResourceController {
 
   final ManagedContext context;
 
+  @Operation.get()
+  Future<Response> methodNotAllowed() async {
+    return Response.notFound();
+  }
+
   @Operation.post()
   Future<Response> login(@Bind.body() User user) async {
     String msg = '登录异常';

@@ -34,8 +34,7 @@ class LoginController extends ResourceController {
       // Return token if exist.
       const String clientId = 'com.openjmu.auth';
       const String clientSecret = 'openjmusecret#2020';
-      final String body =
-          'username=${user.username}'
+      final String body = 'username=${user.username}'
           '&password=${user.password}'
           '&grant_type=password';
       final String clientCredentials = const Base64Encoder().convert(
@@ -52,7 +51,8 @@ class LoginController extends ResourceController {
       );
 
       if (response.statusCode == 200) {
-        final Map<String, dynamic> map = json.decode(response.body) as Map<String, dynamic>;
+        final Map<String, dynamic> map =
+            json.decode(response.body) as Map<String, dynamic>;
 
         return Response.ok(
           BaseResponseModel<Map<String, dynamic>>(
@@ -60,6 +60,7 @@ class LoginController extends ResourceController {
             msg: '登录成功',
             data: <String, dynamic>{
               'access_token': map['access_token'],
+              'refresh_token': map['refresh_token'],
               'username': result.username,
               'user_id': result.id,
             },

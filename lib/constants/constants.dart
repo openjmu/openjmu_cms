@@ -4,3 +4,6 @@
 ///
 const int responseErrorCode = 0;
 const int responseSuccessCode = 1;
+
+const String clientId = 'com.openjmu.auth';
+const String clientSecret = 'openjmusecret#2020';

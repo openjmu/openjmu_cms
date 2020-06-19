@@ -5,7 +5,8 @@
 import 'package:aqueduct/managed_auth.dart';
 import 'package:openjmu_cms/openjmu_cms.dart';
 
-class User extends ManagedObject<_User> implements _User, ManagedAuthResourceOwner<_User> {
+class User extends ManagedObject<_User>
+    implements _User, ManagedAuthResourceOwner<_User> {
   @Serialize(input: true, output: false)
   String password; // md5
 
@@ -24,6 +25,4 @@ class User extends ManagedObject<_User> implements _User, ManagedAuthResourceOwn
   }
 }
 
-class _User extends ResourceOwnerTableDefinition {
-
-}
+class _User extends ResourceOwnerTableDefinition {}

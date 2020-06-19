@@ -51,7 +51,16 @@ class OpenjmuCmsChannel extends ApplicationChannel {
         .link(() => Authorizer.bearer(authServer))
         .link(() => ChangePasswordController(authServer, context));
 
+    router
+        .route('/auth/check-token-valid')
+        .link(() => Authorizer.bearer(authServer))
+        .link(() => CheckTokenValidController());
+
     router.route('/auth/token').link(() => AuthController(authServer));
+
+    router
+        .route('/auth/refresh-token')
+        .link(() => RefreshTokenController(authServer, context));
 
     router
         .route('/first-day')
